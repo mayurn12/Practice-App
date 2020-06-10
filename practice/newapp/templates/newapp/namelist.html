@@ -1,0 +1,40 @@
+{% extends 'newapp/home.html'%}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+                <div class="card-body row no-gutters align-item-center">
+                    <div class="col">
+                        <input type="search" name="name_name" placeholder="Search For Product" class="form-control from-control-borderless">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </div> 
+                </div>
+        </div>
+    </div>
+<br>
+
+
+{% for n in name %}
+<div class="container">
+     <div class="row">
+              <div class="card col-md-6"> 
+                 
+                  {{n.first_name}} {{n.last_name}}
+
+                </div>
+                <br><br><br>
+                <br>
+                <div class="col-md-6">  
+                    <a class="btn btn-outline-success" href="/{{n.id}}" 
+                    role="button">Details</a>
+                        <a class="btn btn-outline-success" href="/upd/{{n.id}}" 
+                            role="button">Edit</a>
+                            <a class="btn btn-outline-danger" href="/dlt/{{n.id}}" 
+                            role="button">Delete</a> 
+                </div>
+        </div>
+</div>
+    {% endfor %}
+{% endblock %}
